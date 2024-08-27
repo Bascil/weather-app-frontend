@@ -70,7 +70,7 @@ export default function Home() {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8000/api/v1/weather/data?units=${units}&city=${city}`
+      `https://weather-app-backend-hwiqzxsgfq-uc.a.run.app/api/v1/weather/data?units=${units}&city=${city}`
     )
       .then((res) => res.json())
       .then((data) => setWeatherData(data.data));
@@ -83,7 +83,7 @@ export default function Home() {
   const fetchForecast = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/v1/weather/forecast?units=${units}&city=${city}&cnt=24`
+        `https://weather-app-backend-hwiqzxsgfq-uc.a.run.app/api/v1/weather/forecast?units=${units}&city=${city}&cnt=24`
       );
       const data = await response.json();
       setForecast(data.data.list);
