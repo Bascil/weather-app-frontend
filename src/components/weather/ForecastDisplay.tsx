@@ -58,7 +58,7 @@ export const ForecastDisplay: React.FC<ForecastDisplayProps> = ({
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6  min-h-[200px]">
       {getDailyForecast().map((day, index) => (
         <ForecastCard
           key={index}

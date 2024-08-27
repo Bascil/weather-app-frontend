@@ -9,12 +9,12 @@ export const WeatherDetails: React.FC<WeatherDetailsProps> = ({
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="bg-white p-4 rounded-md shadow-md">
+      <div className="bg-white p-4 rounded-md shadow-md flex flex-col items-center justify-between min-h-[120px]">
         <h3 className="text-lg font-bold">Wind Status</h3>
-        <p>{weatherData.wind.speed} m/s</p>
-        <div className="flex items-center mt-2">
+        <p className="text-xl mb-2">{weatherData.wind.speed} m/s</p>
+        <div className="flex items-center">
           <div
-            className="w-8 h-8 border-2 border-red-500 rounded-full flex justify-center items-center"
+            className="w-12 h-12 border-2 border-red-500 rounded-full flex justify-center items-center"
             style={{
               transform: `rotate(${weatherData.wind.deg}deg)`,
             }}
@@ -26,24 +26,24 @@ export const WeatherDetails: React.FC<WeatherDetailsProps> = ({
                 backgroundColor: "red",
                 width: "0",
                 height: "0",
-                borderLeft: "4px solid transparent",
-                borderRight: "4px solid transparent",
-                borderBottom: "8px solid red",
+                borderLeft: "6px solid transparent",
+                borderRight: "6px solid transparent",
+                borderBottom: "12px solid red",
               }}
             />
           </div>
-          <span className="ml-2">WSW</span>
+          <span className="ml-2 text-xl">WSW</span>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded-md shadow-md">
+      <div className="bg-white p-4 rounded-md shadow-md flex flex-col items-center justify-between min-h-[150px]">
         <h3 className="text-lg font-bold">Humidity</h3>
+        <p className="text-2xl">{weatherData.main.humidity}%</p>
         <progress
-          className="progress"
+          className="progress progress-flat-success w-full"
           value={weatherData.main.humidity}
           max="100"
         ></progress>
-        <p>{weatherData.main.humidity}%</p>
       </div>
     </div>
   );

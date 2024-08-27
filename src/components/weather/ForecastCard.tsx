@@ -19,7 +19,7 @@ export const ForecastCard: React.FC<ForecastCardProps> = ({
   units,
 }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow">
+    <div className="mt-3 p-6 bg-white rounded-lg shadow">
       <div className="text-center text-lg font-semibold">
         {moment(date).format("D MMM")}
       </div>

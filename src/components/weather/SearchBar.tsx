@@ -50,7 +50,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             ></div>
           </div>
           <div className="ml-3 text-gray-700">
-            <span className="text-xs">°C</span> /{" "}
+            <span className="text-xs">°C </span> /{" "}
             <span className="text-xs">°F</span>
           </div>
         </label>
