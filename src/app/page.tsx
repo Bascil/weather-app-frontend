@@ -32,13 +32,15 @@ export default function Home() {
 
   if (isWeatherLoading || isForecastLoading) return <SkeletonLoader />;
 
-  if (!weatherData) return <div>No weather data available</div>;
-
   return (
     <div className="flex flex-col md:flex-row h-screen p-4 bg-gray-100">
       {/* Sidebar */}
       <div className="md:w-1/4 flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-sm">
-        <WeatherDisplay weatherData={weatherData} units={units} />
+        {weatherData ? (
+          <WeatherDisplay weatherData={weatherData} units={units} />
+        ) : (
+          <div>No weather data available</div>
+        )}
       </div>
 
       {/* Main Content */}
@@ -49,7 +51,7 @@ export default function Home() {
           units={units}
         />
         <ForecastDisplay forecast={forecast} units={units} />
-        <WeatherDetails weatherData={weatherData} />
+        {weatherData && <WeatherDetails weatherData={weatherData} />}
       </div>
     </div>
   );
