@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import { app } from "@/config";
+const { BACKEND_URL } = app;
 
 import moment from "moment";
 
@@ -62,16 +64,17 @@ interface Forecast {
 }
 
 export default function Home() {
-  const [city, setCity] = useState<string>("nairobi");
+  const [city, setCity] = useState<string>("");
   const [searchCity, setSearchCity] = useState<string>(city);
   const [units, setUnits] = useState<string>("metric"); // Default to metric
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
   const [forecast, setForecast] = useState<Forecast[]>([]);
 
   useEffect(() => {
-    fetch(
-      `https://weather-app-backend-hwiqzxsgfq-uc.a.run.app/api/v1/weather/data?units=${units}&city=${city}`
-    )
+    let url = `${BACKEND_URL}/weather/data?units=${units}`;
+    if (city) url += `&city=${city}`;
+
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setWeatherData(data.data));
   }, [city, units]);
@@ -82,9 +85,10 @@ export default function Home() {
 
   const fetchForecast = async () => {
     try {
-      const response = await fetch(
-        `https://weather-app-backend-hwiqzxsgfq-uc.a.run.app/api/v1/weather/forecast?units=${units}&city=${city}&cnt=24`
-      );
+      let url = `${BACKEND_URL}/weather/forecast?units=${units}&cnt=24`;
+      if (city) url += `&city=${city}`;
+
+      const response = await fetch(url);
       const data = await response.json();
       setForecast(data.data.list);
     } catch (error) {
@@ -107,7 +111,6 @@ export default function Home() {
       dailyForecast.push(forecast[i]);
     }
 
-    console.log(dailyForecast);
     return dailyForecast.slice(0, 3); // Return forecast for 3 days
   };
 
@@ -141,14 +144,14 @@ export default function Home() {
             type="text"
             value={searchCity}
             onChange={(e) => setSearchCity(e.target.value)}
-            placeholder="Search city"
+            placeholder="Search city..."
             className="border p-2 rounded-md w-3/4"
           />
           <button
             className="bg-blue-500 text-white p-2 rounded-md ml-2"
             onClick={handleSearch}
           >
-            Search
+            Go
           </button>
           <button
             className="bg-gray-200 p-2 rounded-md ml-2"
