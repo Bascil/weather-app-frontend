@@ -20,11 +20,11 @@ const SkeletonLoader: React.FC = () => {
           {[...Array(3)].map((_, index) => (
             <div
               key={index}
-              className="w-1/3 h-32 bg-gray-300 rounded-md animate-pulse"
+              className="w-1/3 min-h-[200px] bg-gray-300 rounded-md animate-pulse"
             ></div>
           ))}
         </div>
-        <div className="w-full h-32 bg-gray-300 rounded-md animate-pulse"></div>
+        <div className="w-full min-h-[150px] bg-gray-300 rounded-md animate-pulse"></div>
       </div>
     </div>
   );
