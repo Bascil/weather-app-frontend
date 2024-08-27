@@ -39,7 +39,7 @@ export default function Home() {
         {weatherData ? (
           <WeatherDisplay weatherData={weatherData} units={units} />
         ) : (
-          <div>No weather data available</div>
+          <div className="ml-2">No weather data available</div>
         )}
       </div>
 
@@ -51,7 +51,11 @@ export default function Home() {
           units={units}
         />
         <ForecastDisplay forecast={forecast} units={units} />
-        {weatherData && <WeatherDetails weatherData={weatherData} />}
+        {weatherData ? (
+          <WeatherDetails weatherData={weatherData} />
+        ) : (
+          <div className="ml-2">No weather data available</div>
+        )}
       </div>
     </div>
   );
