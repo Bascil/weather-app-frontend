@@ -12,14 +12,16 @@ Frontend for Weather App built in NextJs 14. The frontend is decoupled from back
 ### Technologies
 
 - **NextJs 14**: Excellent choice for modern, performant, and SEO-friendly web applications.
-
-- **Google Cloud Run**: Serverless container runtime hosting backend.
+- **Tailwind CSS**: Utility first CSS framework.
+- **Ripple UI**: For modern and beatiful tailwind SS components.
 
 ### Demo
 
 - **Live Demo**: [Link](https://weather-app-frontend-ui.netlify.app)
 
 ### Approach
+
+- State Maangement: Used Redux Toolkit for managing global state efficiently and thunks for handling asynchronous operations like API calls.
 
 - Maintainability: Clean code practices, unit tests, and CI/CD with google cloud build.
 

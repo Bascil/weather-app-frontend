@@ -34,25 +34,15 @@ export const SearchBar: React.FC<SearchBarProps> = ({
       </button>
       <div className="flex-grow"></div>
       <div className="ml-4 flex items-center">
-        <label className="flex items-center cursor-pointer">
-          <div className="relative">
-            <input
-              type="checkbox"
-              className="hidden"
-              checked={units === "metric"}
-              onChange={onToggleUnits}
-            />
-            <div className="block bg-gray-300 w-12 h-6 rounded-full"></div>
-            <div
-              className={`dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform ${
-                units === "metric" ? "transform translate-x-6" : ""
-              }`}
-            ></div>
-          </div>
-          <div className="ml-3 text-gray-700">
-            <span className="text-xs">°C </span> /{" "}
-            <span className="text-xs">°F</span>
-          </div>
+        <label className="flex items-center cursor-pointer space-x-2">
+          <span className="text-gray-700 text-xs">°F</span>
+          <input
+            type="checkbox"
+            className="switch switch-bordered-primary"
+            checked={units === "metric"}
+            onChange={onToggleUnits}
+          />
+          <span className="text-gray-700 text-xs">°C</span>
         </label>
       </div>
     </div>
