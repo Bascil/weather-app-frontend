@@ -18,7 +18,6 @@ Frontend for Weather App built in NextJs 14. The frontend is decoupled from back
 ### Demo
 
 - **Live Demo**: [Link](https://weather-app-frontend-ui.netlify.app)
-- **Backend Repo**: [Repo](https://github.com/Bascil/weather-app-backend)
 
 ### Approach
 
@@ -54,9 +53,7 @@ NEXT_PUBLIC_APP_ENV=local
 NEXT_PUBLIC_BACKEND_URL=http://localhost:8080/api/v1
 ```
 
-**NEXT_PUBLIC_BACKEND_URL** is set to localhost assuming the backend was setup using docker as per the readme instructions [here](https://github.com/Bascil/weather-app-backend)
-
-Optionally you can set backend url to point to cloud run instance, but you may experience CORS issues
+**NEXT_PUBLIC_BACKEND_URL** is set to localhost assuming the backend was setup using docker as per the readme instructions [here](https://github.com/Bascil/weather-app-backend). Optionally you can set **backend url** to point to cloud run instance, but you may experience CORS issues
 
 ```
 NEXT_PUBLIC_BACKEND_URL=https://weather-app-backend-hwiqzxsgfq-uc.a.run.app/api/v1
